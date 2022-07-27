@@ -63,6 +63,19 @@ trait VariableProfileHelper
     }
 
     /**
+     * Erstellt und konfiguriert ein VariablenProfil für den Typ string mit Assoziationen.
+     *
+     * @param string $Name         Name des Profils.
+     * @param string $Icon         Name des Icon.
+     * @param string $Prefix       Prefix für die Darstellung.
+     * @param string $Suffix       Suffix für die Darstellung.
+     * @param array  $Associations Assoziationen der Werte als Array.
+     */
+    protected function RegisterProfileStringEx($Name, $Icon, $Prefix, $Suffix, $Associations)
+    {
+        $this->RegisterProfileEx(VARIABLETYPE_STRING, $Name, $Icon, $Prefix, $Suffix, $Associations);
+    }
+    /**
      * Erstellt und konfiguriert ein VariablenProfil für den Typ bool.
      *
      * @param string $Name   Name des Profils.
@@ -165,7 +178,7 @@ trait VariableProfileHelper
         } else {
             $profile = IPS_GetVariableProfile($Name);
             if ($profile['ProfileType'] != $VarTyp) {
-                throw new Exception('Variable profile type does not match for profile ' . $Name, E_USER_WARNING);
+                throw new \Exception('Variable profile type does not match for profile ' . $Name, E_USER_WARNING);
             }
         }
 
