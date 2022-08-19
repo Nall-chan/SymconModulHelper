@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * @addtogroup generic
  * @{
@@ -184,7 +186,7 @@ trait VariableProfileHelper
 
         IPS_SetVariableProfileIcon($Name, $Icon);
         IPS_SetVariableProfileText($Name, $this->Translate($Prefix), $this->Translate($Suffix));
-        if ($VarTyp != VARIABLETYPE_BOOLEAN) {
+        if (($VarTyp != VARIABLETYPE_BOOLEAN) && ($VarTyp != VARIABLETYPE_STRING)) {
             IPS_SetVariableProfileValues($Name, $MinValue, $MaxValue, $StepSize);
         }
         if ($VarTyp == VARIABLETYPE_FLOAT) {
