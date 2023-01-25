@@ -28,10 +28,7 @@ trait VariableProfileHelper
      */
     protected function RegisterProfileBooleanEx($Name, $Icon, $Prefix, $Suffix, $Associations)
     {
-        $this->RegisterProfileBoolean($Name, $Icon, $Prefix, $Suffix);
-        foreach ($Associations as $Association) {
-            IPS_SetVariableProfileAssociation($Name, $Association[0], $Association[1], $Association[2], $Association[3]);
-        }
+        $this->RegisterProfileEx(VARIABLETYPE_BOOLEAN, $Name, $Icon, $Prefix, $Suffix, $Associations);
     }
 
     /**
