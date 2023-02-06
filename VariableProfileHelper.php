@@ -137,9 +137,13 @@ trait VariableProfileHelper
             $MinValue = 0;
             $MaxValue = 0;
         } else {
-            $MinValue = $Associations[0][0];
+            $MinMax = array_column($Associations, 0);
+            sort($MinMax);
+            $MinValue = $MinMax[0];
             if ($MaxValue == -1) {
                 $MaxValue = $Associations[count($Associations) - 1][0];
+            } else {
+                $MaxValue = array_pop($MinMax);
             }
         }
         $this->RegisterProfile($VarTyp, $Name, $Icon, $Prefix, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits);
