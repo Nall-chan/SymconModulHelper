@@ -24,7 +24,7 @@ trait BufferHelper
      * @param string $name PropertyName
      * @return mixed Value of Name
      */
-    public function __get($name)
+    public function __get(string $name):mixed
     {
         if (strpos($name, 'Multi_') === 0) {
             $Lines = '';
@@ -43,7 +43,7 @@ trait BufferHelper
      * @param string $name PropertyName
      * @param mixed Value of Name
      */
-    public function __set($name, $value)
+    public function __set(string $name, mixed $value):void
     {
         $Data = serialize($value);
         if (strpos($name, 'Multi_') === 0) {

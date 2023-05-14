@@ -26,7 +26,7 @@ trait VariableProfileHelper
      * @param string $Suffix       Suffix für die Darstellung.
      * @param array  $Associations Assoziationen der Werte als Array.
      */
-    protected function RegisterProfileBooleanEx($Name, $Icon, $Prefix, $Suffix, $Associations)
+    protected function RegisterProfileBooleanEx(string $Name, string $Icon, string $Prefix, string $Suffix, array $Associations):void
     {
         $this->RegisterProfileEx(VARIABLETYPE_BOOLEAN, $Name, $Icon, $Prefix, $Suffix, $Associations);
     }
@@ -40,7 +40,7 @@ trait VariableProfileHelper
      * @param string $Suffix       Suffix für die Darstellung.
      * @param array  $Associations Assoziationen der Werte als Array.
      */
-    protected function RegisterProfileIntegerEx($Name, $Icon, $Prefix, $Suffix, $Associations, $MaxValue = -1, $StepSize = 0)
+    protected function RegisterProfileIntegerEx(string $Name, string $Icon, string $Prefix, string $Suffix, array $Associations, int $MaxValue = -1, int $StepSize = 0):void
     {
         $this->RegisterProfileEx(VARIABLETYPE_INTEGER, $Name, $Icon, $Prefix, $Suffix, $Associations, $MaxValue, $StepSize);
     }
@@ -54,7 +54,7 @@ trait VariableProfileHelper
      * @param string $Suffix       Suffix für die Darstellung.
      * @param array  $Associations Assoziationen der Werte als Array.
      */
-    protected function RegisterProfileFloatEx($Name, $Icon, $Prefix, $Suffix, $Associations, $MaxValue = -1, $StepSize = 0, $Digits = 0)
+    protected function RegisterProfileFloatEx(string $Name, string $Icon, string $Prefix, string $Suffix, array $Associations, int $MaxValue = -1, int $StepSize = 0, int $Digits = 0):void
     {
         $this->RegisterProfileEx(VARIABLETYPE_FLOAT, $Name, $Icon, $Prefix, $Suffix, $Associations, $MaxValue, $StepSize, $Digits);
     }
@@ -68,7 +68,7 @@ trait VariableProfileHelper
      * @param string $Suffix       Suffix für die Darstellung.
      * @param array  $Associations Assoziationen der Werte als Array.
      */
-    protected function RegisterProfileStringEx($Name, $Icon, $Prefix, $Suffix, $Associations)
+    protected function RegisterProfileStringEx(string $Name, string $Icon, string $Prefix, string $Suffix, array $Associations):void
     {
         $this->RegisterProfileEx(VARIABLETYPE_STRING, $Name, $Icon, $Prefix, $Suffix, $Associations);
     }
@@ -80,7 +80,7 @@ trait VariableProfileHelper
      * @param string $Prefix Prefix für die Darstellung.
      * @param string $Suffix Suffix für die Darstellung.
      */
-    protected function RegisterProfileBoolean($Name, $Icon, $Prefix, $Suffix)
+    protected function RegisterProfileBoolean(string $Name, string $Icon, string $Prefix, string $Suffix):void
     {
         $this->RegisterProfile(VARIABLETYPE_BOOLEAN, $Name, $Icon, $Prefix, $Suffix, 0, 0, 0);
     }
@@ -96,7 +96,7 @@ trait VariableProfileHelper
      * @param int    $MaxValue Maximaler wert.
      * @param int    $StepSize Schrittweite
      */
-    protected function RegisterProfileInteger($Name, $Icon, $Prefix, $Suffix, $MinValue, $MaxValue, $StepSize)
+    protected function RegisterProfileInteger(string $Name, string $Icon, string $Prefix, string $Suffix, int $MinValue, int $MaxValue, int $StepSize):void
     {
         $this->RegisterProfile(VARIABLETYPE_INTEGER, $Name, $Icon, $Prefix, $Suffix, $MinValue, $MaxValue, $StepSize);
     }
@@ -112,7 +112,7 @@ trait VariableProfileHelper
      * @param int    $MaxValue Maximaler wert.
      * @param int    $StepSize Schrittweite
      */
-    protected function RegisterProfileFloat($Name, $Icon, $Prefix, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits)
+    protected function RegisterProfileFloat(string $Name, string $Icon, string $Prefix, string $Suffix, int $MinValue, int $MaxValue, int $StepSize, int $Digits):void
     {
         $this->RegisterProfile(VARIABLETYPE_FLOAT, $Name, $Icon, $Prefix, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits);
     }
@@ -127,7 +127,7 @@ trait VariableProfileHelper
      * @param string $Suffix       Suffix für die Darstellung.
      * @param array  $Associations Assoziationen der Werte als Array.
      */
-    protected function RegisterProfileEx($VarTyp, $Name, $Icon, $Prefix, $Suffix, $Associations, $MaxValue = -1, $StepSize = 0, $Digits = 0)
+    protected function RegisterProfileEx(int $VarTyp, string $Name, string $Icon, string $Prefix, string $Suffix, array $Associations, int $MaxValue = -1, int $StepSize = 0, int $Digits = 0):void
     {
         if (is_int($Associations)) {
             $this->RegisterProfile($VarTyp, $Name, $Icon, $Prefix, $Suffix, $Associations, $MaxValue, $StepSize, $Digits);
@@ -172,7 +172,7 @@ trait VariableProfileHelper
      * @param int    $MaxValue Maximaler wert.
      * @param int    $StepSize Schrittweite
      */
-    protected function RegisterProfile($VarTyp, $Name, $Icon, $Prefix, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits = 0)
+    protected function RegisterProfile(int $VarTyp, string $Name, string $Icon, string $Prefix, string $Suffix, int $MinValue, int $MaxValue, int $StepSize, int $Digits = 0):void
     {
         if (!IPS_VariableProfileExists($Name)) {
             IPS_CreateVariableProfile($Name, $VarTyp);
@@ -198,7 +198,7 @@ trait VariableProfileHelper
      *
      * @param string $Name Name des zu löschenden Profils.
      */
-    protected function UnregisterProfile(string $Name)
+    protected function UnregisterProfile(string $Name):void
     {
         if (!IPS_VariableProfileExists($Name)) {
             return;

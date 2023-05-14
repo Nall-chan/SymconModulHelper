@@ -14,7 +14,7 @@ trait AttributeArrayHelper
      * @param array $Value Standardwert des Attribut
      * @param int $Size Anzahl der zu verwendeten String Attribute
      */
-    protected function RegisterAttributeArray($name, $Value, $Size = 0)
+    protected function RegisterAttributeArray(string $name, mixed $Value, int $Size = 0):void
     {
         $Data = json_encode($Value);
         if (strpos($name, 'Multi_') === 0) {
@@ -35,7 +35,7 @@ trait AttributeArrayHelper
      * @param string $name Name des Attribut
      * @return array Inhalt des Attribut
      */
-    protected function ReadAttributeArray($name)
+    protected function ReadAttributeArray(string $name):mixed
     {
         if (strpos($name, 'Multi_') === 0) {
             $Lines = '';
@@ -54,7 +54,7 @@ trait AttributeArrayHelper
      * @param array $value Array welches in das Attribut geschrieben wird
      * @return bool False im Fehlerfall
      */
-    protected function WriteAttributeArray($name, $value)
+    protected function WriteAttributeArray(string $name, mixed $value):void
     {
         $Data = json_encode($value);
         if (strpos($name, 'Multi_') === 0) {
@@ -62,7 +62,7 @@ trait AttributeArrayHelper
             $Lines = str_split($Data, 8000);
             if (count($Lines) > $Size) {
                 trigger_error($this->InstanceID . ':' . 'Data for AttributeArray is too big.', E_USER_NOTICE);
-                return false;
+                return;
             }
             for ($i = 0; $i < $Size; $i++) {
                 $Line = (array_key_exists($i, $Lines)) ? $Lines[$i] : '';

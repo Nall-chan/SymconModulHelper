@@ -23,7 +23,7 @@ trait InstanceStatus
      * Alle Events des Parent werden hier verarbeitet und entkoppelt über RequestAction an IOChangeState übergeben.
      * @access public
      */
-    protected function MessageSink($TimeStamp, $SenderID, $Message, $Data)
+    protected function MessageSink(int $TimeStamp, int $SenderID, int $Message, array $Data): void
     {
         switch ($Message) {
             case IM_CHANGESETTINGS:
@@ -62,7 +62,7 @@ trait InstanceStatus
      * @access public
      * @return bool True wenn $Ident verarbeitet wurde.
      */
-    protected function RequestAction($Ident, $Value)
+    protected function RequestAction(string $Ident, mixed $Value): bool
     {
         if ($Ident != 'IOChangeState') {
             return false;
@@ -78,7 +78,7 @@ trait InstanceStatus
      * @access protected
      * @return int ID des Parent.
      */
-    protected function RegisterParent()
+    protected function RegisterParent():int
     {
         $OldParentId = $this->ParentID;
         $ParentId = @IPS_GetInstance($this->InstanceID)['ConnectionID'];
@@ -103,7 +103,7 @@ trait InstanceStatus
      * Erweitert die SDK funktion um die Prüfung ob überhaupt ein Parent verbunden ist.
      * @return bool True wenn Parent-Kette vorhanden und aktiv ist.
      */
-    protected function HasActiveParent()
+    protected function HasActiveParent():bool
     {
         if ($this->ParentID > 0) {
             return parent::HasActiveParent();

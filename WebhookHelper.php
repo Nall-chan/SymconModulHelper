@@ -23,7 +23,7 @@ trait WebhookHelper
      * @access protected
      * @param string $WebHook URI des WebHook.
      */
-    protected function RegisterHook($WebHook)
+    protected function RegisterHook(string $WebHook):void
     {
         $ids = IPS_GetInstanceListByModuleID('{015A6EB8-D6E5-4B93-B496-0D3F77AE9FE1}');
         if (count($ids) > 0) {
@@ -53,7 +53,7 @@ trait WebhookHelper
      * @access protected
      * @param string $WebHook URI des WebHook.
      */
-    protected function UnregisterHook($WebHook)
+    protected function UnregisterHook(string $WebHook):void
     {
         $ids = IPS_GetInstanceListByModuleID('{015A6EB8-D6E5-4B93-B496-0D3F77AE9FE1}');
         if (sizeof($ids) > 0) {

@@ -25,7 +25,7 @@ trait DebugHelper
      *
      * @return int $Format Ausgabeformat für Strings.
      */
-    protected function SendDebug($Message, $Data, $Format)
+    protected function SendDebug(string $Message, mixed $Data, int $Format):bool
     {
         if (is_array($Data)) {
             if (count($Data) == 0) {
@@ -55,6 +55,7 @@ trait DebugHelper
                 $this->LogMessage($Message . ':' . (string) $Data, KL_DEBUG);
             }
         }
+        return true;
     }
 }
 

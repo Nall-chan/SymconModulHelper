@@ -20,9 +20,9 @@ trait Semaphore
     /**
      * Versucht eine Semaphore zu setzen und wiederholt dies bei Misserfolg bis zu 100 mal.
      * @param string $ident Ein String der den Lock bezeichnet.
-     * @return boolean TRUE bei Erfolg, FALSE bei Misserfolg.
+     * @return bool TRUE bei Erfolg, FALSE bei Misserfolg.
      */
-    private function lock($ident)
+    private function lock(string $ident):bool
     {
         for ($i = 0; $i < 100; $i++) {
             if (IPS_SemaphoreEnter(__CLASS__ . '.' . (string) $this->InstanceID . (string) $ident, 1)) {
@@ -38,7 +38,7 @@ trait Semaphore
      * Löscht eine Semaphore.
      * @param string $ident Ein String der den Lock bezeichnet.
      */
-    private function unlock($ident)
+    private function unlock(string $ident):void
     {
         IPS_SemaphoreLeave(__CLASS__ . '.' . (string) $this->InstanceID . (string) $ident);
     }

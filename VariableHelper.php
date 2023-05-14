@@ -26,9 +26,9 @@ trait VariableHelper
      *
      * @return bool true wenn der neue Wert vom alten abweicht, sonst false.
      */
-    protected function SetValueBoolean($Ident, $value)
+    protected function SetValueBoolean(string $Ident, bool $value):void
     {
-        $this->SetValue($Ident, (bool) $value);
+        $this->SetValue($Ident, $value);
     }
 
     /**
@@ -39,9 +39,9 @@ trait VariableHelper
      *
      * @return bool true wenn der neue Wert vom alten abweicht, sonst false.
      */
-    protected function SetValueFloat($Ident, $value)
+    protected function SetValueFloat(string $Ident, float $value):void
     {
-        $this->SetValue($Ident, (float) $value);
+        $this->SetValue($Ident, $value);
     }
 
     /**
@@ -52,9 +52,9 @@ trait VariableHelper
      *
      * @return bool true wenn der neue Wert vom alten abweicht, sonst false.
      */
-    protected function SetValueInteger($Ident, $value)
+    protected function SetValueInteger(string $Ident, int $value):void
     {
-        $this->SetValue($Ident, (int) $value);
+        $this->SetValue($Ident, $value);
     }
 
     /**
@@ -65,9 +65,9 @@ trait VariableHelper
      *
      * @return bool true wenn der neue Wert vom alten abweicht, sonst false.
      */
-    protected function SetValueString($Ident, $value)
+    protected function SetValueString(string $Ident, string $value):void
     {
-        $this->SetValue($Ident, (string) $value);
+        $this->SetValue($Ident, $value);
     }
 }
 
