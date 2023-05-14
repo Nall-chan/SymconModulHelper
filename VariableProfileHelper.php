@@ -40,7 +40,7 @@ trait VariableProfileHelper
      * @param string $Suffix       Suffix für die Darstellung.
      * @param array  $Associations Assoziationen der Werte als Array.
      */
-    protected function RegisterProfileIntegerEx(string $Name, string $Icon, string $Prefix, string $Suffix, array $Associations, int $MaxValue = -1, int $StepSize = 0):void
+    protected function RegisterProfileIntegerEx(string $Name, string $Icon, string $Prefix, string $Suffix, array $Associations, int $MaxValue = -1, float $StepSize = 0):void
     {
         $this->RegisterProfileEx(VARIABLETYPE_INTEGER, $Name, $Icon, $Prefix, $Suffix, $Associations, $MaxValue, $StepSize);
     }
@@ -54,7 +54,7 @@ trait VariableProfileHelper
      * @param string $Suffix       Suffix für die Darstellung.
      * @param array  $Associations Assoziationen der Werte als Array.
      */
-    protected function RegisterProfileFloatEx(string $Name, string $Icon, string $Prefix, string $Suffix, array $Associations, int $MaxValue = -1, int $StepSize = 0, int $Digits = 0):void
+    protected function RegisterProfileFloatEx(string $Name, string $Icon, string $Prefix, string $Suffix, array $Associations, float $MaxValue = -1, float $StepSize = 0, int $Digits = 0):void
     {
         $this->RegisterProfileEx(VARIABLETYPE_FLOAT, $Name, $Icon, $Prefix, $Suffix, $Associations, $MaxValue, $StepSize, $Digits);
     }
@@ -108,11 +108,11 @@ trait VariableProfileHelper
      * @param string $Icon     Name des Icon.
      * @param string $Prefix   Prefix für die Darstellung.
      * @param string $Suffix   Suffix für die Darstellung.
-     * @param int    $MinValue Minimaler Wert.
-     * @param int    $MaxValue Maximaler wert.
-     * @param int    $StepSize Schrittweite
+     * @param float  $MinValue Minimaler Wert.
+     * @param float  $MaxValue Maximaler wert.
+     * @param float  $StepSize Schrittweite
      */
-    protected function RegisterProfileFloat(string $Name, string $Icon, string $Prefix, string $Suffix, int $MinValue, int $MaxValue, int $StepSize, int $Digits):void
+    protected function RegisterProfileFloat(string $Name, string $Icon, string $Prefix, string $Suffix, float $MinValue, float $MaxValue, float $StepSize, int $Digits):void
     {
         $this->RegisterProfile(VARIABLETYPE_FLOAT, $Name, $Icon, $Prefix, $Suffix, $MinValue, $MaxValue, $StepSize, $Digits);
     }
@@ -127,7 +127,7 @@ trait VariableProfileHelper
      * @param string $Suffix       Suffix für die Darstellung.
      * @param array  $Associations Assoziationen der Werte als Array.
      */
-    protected function RegisterProfileEx(int $VarTyp, string $Name, string $Icon, string $Prefix, string $Suffix, array $Associations, int $MaxValue = -1, int $StepSize = 0, int $Digits = 0):void
+    protected function RegisterProfileEx(int $VarTyp, string $Name, string $Icon, string $Prefix, string $Suffix, array $Associations, float $MaxValue = -1, float $StepSize = 0, int $Digits = 0):void
     {
         if (is_int($Associations)) {
             $this->RegisterProfile($VarTyp, $Name, $Icon, $Prefix, $Suffix, $Associations, $MaxValue, $StepSize, $Digits);
@@ -168,11 +168,11 @@ trait VariableProfileHelper
      * @param string $Icon     Name des Icon.
      * @param string $Prefix   Prefix für die Darstellung.
      * @param string $Suffix   Suffix für die Darstellung.
-     * @param int    $MinValue Minimaler Wert.
-     * @param int    $MaxValue Maximaler wert.
-     * @param int    $StepSize Schrittweite
+     * @param float  $MinValue Minimaler Wert.
+     * @param float  $MaxValue Maximaler wert.
+     * @param float  $StepSize Schrittweite
      */
-    protected function RegisterProfile(int $VarTyp, string $Name, string $Icon, string $Prefix, string $Suffix, int $MinValue, int $MaxValue, int $StepSize, int $Digits = 0):void
+    protected function RegisterProfile(int $VarTyp, string $Name, string $Icon, string $Prefix, string $Suffix, float $MinValue, float $MaxValue, float $StepSize, int $Digits = 0):void
     {
         if (!IPS_VariableProfileExists($Name)) {
             IPS_CreateVariableProfile($Name, $VarTyp);
