@@ -96,7 +96,7 @@ trait VariableProfileHelper
      * @param int    $MaxValue Maximaler wert.
      * @param int    $StepSize Schrittweite
      */
-    protected function RegisterProfileInteger(string $Name, string $Icon, string $Prefix, string $Suffix, int $MinValue, int $MaxValue, int $StepSize):void
+    protected function RegisterProfileInteger(string $Name, string $Icon, string $Prefix, string $Suffix, int $MinValue, int $MaxValue, float $StepSize):void
     {
         $this->RegisterProfile(VARIABLETYPE_INTEGER, $Name, $Icon, $Prefix, $Suffix, $MinValue, $MaxValue, $StepSize);
     }
