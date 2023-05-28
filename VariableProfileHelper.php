@@ -133,7 +133,7 @@ trait VariableProfileHelper
             $this->RegisterProfile($VarTyp, $Name, $Icon, $Prefix, $Suffix, $Associations, $MaxValue, $StepSize, $Digits);
             return;
         }
-        if ((count($Associations) === 0)||($VarTyp === VARIABLETYPE_BOOLEAN)) {
+        if ((count($Associations) === 0)||($VarTyp === VARIABLETYPE_BOOLEAN)||($VarTyp === VARIABLETYPE_STRING)) {
             $MinValue = 0;
             $MaxValue = 0;
         } else {
