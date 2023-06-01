@@ -31,12 +31,12 @@ trait DebugHelper
             if (count($Data) == 0) {
                 $this->SendDebug($Message, '[EMPTY]', 0);
             } elseif (count($Data) > 25) {
-                $this->SendDebug($Message, array_slice($Data, 0, 20), 0);
+                $this->SendDebug($Message, array_slice($Data, 0, 20), $Format);
                 $this->SendDebug($Message . ':CUT', '-------------CUT-----------------', 0);
                 $this->SendDebug($Message, array_slice($Data, -5, null, true), 0);
             } else {
                 foreach ($Data as $Key => $DebugData) {
-                    $this->SendDebug($Message . ':' . $Key, $DebugData, 0);
+                    $this->SendDebug($Message . ':' . $Key, $DebugData, $Format);
                 }
             }
         } elseif (is_object($Data)) {
@@ -44,7 +44,7 @@ trait DebugHelper
                 $this->SendDebug($Message, '[EMPTY]', 0);
             }
             foreach ($Data as $Key => $DebugData) {
-                $this->SendDebug($Message . '->' . $Key, $DebugData, 0);
+                $this->SendDebug($Message . '->' . $Key, $DebugData, $Format);
             }
         } elseif (is_bool($Data)) {
             parent::SendDebug($Message, ($Data ? 'TRUE' : 'FALSE'), 0);
