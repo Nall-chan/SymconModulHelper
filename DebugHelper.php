@@ -22,8 +22,8 @@ trait DebugHelper
      *
      * @param string                                           $Message Nachricht für Data.
      * @param mixed $Data    Daten für die Ausgabe.
-     *
-     * @return int $Format Ausgabeformat für Strings.
+     * @param int $Format Ausgabeformat für Strings.
+     * @return bool
      */
     protected function SendDebug(string $Message, mixed $Data, int $Format):bool
     {

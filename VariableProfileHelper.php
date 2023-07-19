@@ -120,14 +120,14 @@ trait VariableProfileHelper
     /**
      * Erstellt und konfiguriert ein VariablenProfil für den Typ VarType mit Assoziationen.
      *
-     * @param int    $VarTyp   Typ der Variable
+     * @param int    $VarTyp   Typ der Variablecket_close
      * @param string $Name         Name des Profils.
      * @param string $Icon         Name des Icon.
      * @param string $Prefix       Prefix für die Darstellung.
      * @param string $Suffix       Suffix für die Darstellung.
      * @param array  $Associations Assoziationen der Werte als Array.
      */
-    protected function RegisterProfileEx(int $VarTyp, string $Name, string $Icon, string $Prefix, string $Suffix, array $Associations, float $MaxValue = -1, float $StepSize = 0, int $Digits = 0):void
+    protected function RegisterProfileEx(int $VarTyp, string $Name, string $Icon, string $Prefix, string $Suffix, int|array $Associations, float $MaxValue = -1, float $StepSize = 0, int $Digits = 0):void
     {
         if (is_int($Associations)) {
             $this->RegisterProfile($VarTyp, $Name, $Icon, $Prefix, $Suffix, $Associations, $MaxValue, $StepSize, $Digits);
