@@ -215,16 +215,7 @@ trait VariableProfileHelper
             }
         }
         IPS_DeleteVariableProfile($Name);
-    }
-    protected function FindIDForIdent(string $Ident):int
-    {
-        return @$this->GetIDForIdent($Ident);
-        /*$Id = parent::FindIDForIdent($Ident);
-        if ($Id > 1){
-            return $Id;
-        }
-        return 0;*/
-    }       
+    } 
 }
 
 /* @} */

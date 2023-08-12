@@ -69,6 +69,16 @@ trait VariableHelper
     {
         $this->SetValue($Ident, $value);
     }
+    
+    protected function FindIDForIdent(string $Ident):int
+    {
+        return (int)@$this->GetIDForIdent($Ident);
+        /*$Id = parent::FindIDForIdent($Ident);
+        if ($Id > 1){
+            return $Id;
+        }
+        return 0;*/
+    }     
 }
 
 /* @} */
