@@ -26,7 +26,6 @@ trait InstanceStatus
      */
     protected function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
-        $this->LogMessage((string)$Message,KL_MESSAGE);
         switch ($Message) {
             case FM_CONNECT:
                 $this->RegisterParent();
