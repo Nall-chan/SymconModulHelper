@@ -31,9 +31,7 @@ trait DebugHelper
             if (count($Data) == 0) {
                 $this->SendDebug($Message, '[EMPTY]', 0);
             } elseif (count($Data) > 25) {
-                $this->SendDebug($Message, array_slice($Data, 0, 20), $Format);
-                $this->SendDebug($Message . ':CUT', '-------------CUT-----------------', 0);
-                $this->SendDebug($Message, array_slice($Data, -5, null, true), $Format);
+                $this->SendDebug($Message. '(compress)', json_encode($Data), $Format);
             } else {
                 foreach ($Data as $Key => $DebugData) {
                     $this->SendDebug($Message . ':' . $Key, $DebugData, $Format);

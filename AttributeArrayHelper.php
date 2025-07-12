@@ -35,7 +35,7 @@ trait AttributeArrayHelper
      * @param string $name Name des Attribut
      * @return array Inhalt des Attribut
      */
-    protected function ReadAttributeArray(string $name):mixed
+    protected function ReadAttributeArray(string $name):array
     {
         if (strpos($name, 'Multi_') === 0) {
             $Lines = '';
